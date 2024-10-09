@@ -4,10 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TigreVet - Cuidando de tu mascota</title>
-       <!--
-
-       -->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.0/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -27,7 +25,7 @@
                         <li><a href="#citas">Turnos</a></li>
                         <li><a href="#recursos">Recursos educativos</a></li>
                         <li><a href="#blog">Blog</a></li>
-                        <li><a href="#preguntas">Preguntas frecuentes</a></li>
+                        <li><a href="#faq">Preguntas frecuentes</a></li>
                         <li><a href="#pagos">Métodos de pago</a></li>
                         <li><a href="#contacto">Contacto</a></li>
                     </ul>
@@ -36,96 +34,89 @@
         </div>
     </header>
     <main>
-        <section id="inicio" class="relative">
-            <img src="hero-image.jpg" alt="Hero Image" class="w-full h-96 object-cover">
-            <div class="absolute inset-0 flex items-center justify-center text-center bg-opacity-50">
+        <section id="inicio-hero">
+            <div class="herotext">
                 <div>
-                    <h1 class="text-3xl font-bold text-white">Tu mascota, nuestra prioridad</h1>
-                    <p class="text-lg text-white mt-4">Cuidando de la salud y bienestar de tu mejor amigo.</p>
-                    <br />
-                    <a href="#citas" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-6">Reserva tu turno</a>
+                    <h1>Tu mascota, nuestra prioridad</h1>
+                    <p>Cuidando de la salud y bienestar de tu mascota.</p>
+                    <a href="#citas">Reserva tu turno</a>
                 </div>
             </div>
         </section>
-        <section id="servicios" class="container mx-auto px-4 py-12">
-            <h2 class="text-3xl font-bold text-gray-800 text-center mb-8">Nuestros Servicios</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="bg-white rounded shadow p-6">
-                    <h3 class="text-xl font-bold text-gray-800 mb-4">Atención Veterinaria General</h3>
-                    <p class="text-gray-600">Consulta médica para tu mascota, chequeos, vacunas, etc.</p>
+        <section id="servicios">
+            <h2>Nuestros Servicios</h2>
+            <div class="grid-cols-2">
+                <div>
+                    <h3>Atención Veterinaria General</h3>
+                    <p>Consulta médica para tu mascota, chequeos, vacunas, etc.</p>
                 </div>
-                <div class="bg-white rounded shadow p-6">
-                    <h3 class="text-xl font-bold text-gray-800 mb-4">Cirugía</h3>
-                    <p class="text-gray-600">Cirugías generales, de tejidos blandos, ortopédicas, etc.</p>
+                <div>
+                    <h3>Cirugía</h3>
+                    <p>Cirugías generales, de tejidos blandos, ortopédicas, etc.</p>
                 </div>
-                <div class="bg-white rounded shadow p-6">
-                    <h3 class="text-xl font-bold text-gray-800 mb-4">Odontología</h3>
-                    <p class="text-gray-600">Limpieza dental, extracciones, tratamientos de enfermedades bucales.</p>
+                <div>
+                    <h3>Odontología</h3>
+                    <p>Limpieza dental, extracciones, tratamientos de enfermedades bucales.</p>
                 </div>
-                <div class="bg-white rounded shadow p-6">
-                    <h3 class="text-xl font-bold text-gray-800 mb-4">Radiología y Ecografía</h3>
-                    <p class="text-gray-600">Estudios radiológicos y ecográficos para diagnósticos.</p>
+                <div>
+                    <h3>Radiología y Ecografía</h3>
+                    <p>Estudios radiológicos y ecográficos para diagnósticos.</p>
                 </div>
-                <div class="bg-white rounded shadow p-6">
-                    <h3 class="text-xl font-bold text-gray-800 mb-4">Laboratorio</h3>
-                    <p class="text-gray-600">Análisis de sangre, orina, heces, etc. para diagnósticos.</p>
+                <div>
+                    <h3>Laboratorio</h3>
+                    <p>Análisis de sangre, orina, heces, etc. para diagnósticos.</p>
                 </div>
-                <div class="bg-white rounded shadow p-6">
-                    <h3 class="text-xl font-bold text-gray-800 mb-4">Peluquería canina</h3>
-                    <p class="text-gray-600">Baños, cortes de pelo, desparasitación, etc.</p>
+                <div>
+                    <h3>Peluquería canina</h3>
+                    <p>Baños, cortes de pelo, desparasitación, etc.</p>
                 </div>
             </div>
         </section>
-        <section id="citas" class="container mx-auto px-4 py-12">
-            <h2 class="text-3xl font-bold text-gray-800 text-center mb-8">Citas en línea</h2>
-            <div class="flex flex-col items-center">
-                <div id="calendar" class="bg-white rounded shadow p-6 w-full md:w-1/2">
-                    <!-- Aquí se cargará el calendario -->
+        <section id="citas">
+            <h2>Citas en línea</h2>
+            <div>
+                <div id="calendar">
+                    <p>Fecha: <input type="text" id="calendario"></p>
                 </div>
-                <p class="text-gray-600 text-center mt-4">Haz clic en un día para ver los horarios disponibles.</p>
+                <p>Haz clic en un día para ver los horarios disponibles.</p>
             </div>
         </section>
-        <!-- Resto de las secciones -->
     </main>
     <footer>
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="container">
+            <div class="grid-cols-3">
                 <div>
-                    <h3 class="text-xl font-bold mb-4">TigreVet</h3>
+                    <h3>TigreVet</h3>
                     <p>Cuidando de tu mascota con amor y profesionalismo.</p>
                     <br />
                     <img src="logo.png" alt="TigreVet Logo" class="logo" />
                 </div>
                 <div>
-                    <h3 class="text-xl font-bold mb-4">Enlaces</h3>
-                    <ul>
-                        <li><a href="#inicio" class="hover:text-gray-200">Inicio</a></li>
-                        <li><a href="#servicios" class="hover:text-gray-200">Servicios</a></li>
-                        <li><a href="#citas" class="hover:text-gray-200">Turnos</a></li>
-                        <li><a href="#recursos" class="hover:text-gray-200">Recursos educativos</a></li>
-                        <li><a href="#blog" class="hover:text-gray-200">Blog</a></li>
-                        <li><a href="#preguntas" class="hover:text-gray-200">Preguntas frecuentes</a></li>
-                        <li><a href="#pagos" class="hover:text-gray-200">Métodos de pago</a></li>
-                        <li><a href="#contacto" class="hover:text-gray-200">Contacto</a></li>
-                    </ul>
-                </div>
+                  <h3>Enlaces</h3>
+                  <ul>
+                      <li><a href="#inicio">Inicio</a></li>
+                      <li><a href="#servicios">Servicios</a></li>
+                      <li><a href="#citas">Turnos</a></li>
+                      <li><a href="#recursos">Recursos educativos</a></li>
+                      <li><a href="#blog">Blog</a></li>
+                      <li><a href="#faq">Preguntas frecuentes</a></li>
+                      <li><a href="#pagos">Métodos de pago</a></li>
+                      <li><a href="#contacto">Contacto</a></li>
+                  </ul>
+                 </div>
                 <div>
-                    <h3 class="text-xl font-bold mb-4">Contacto</h3>
-                    <p>
-                        <span class="block mb-2">Dirección:</span> Av. Siempreviva 123, Tigre, Buenos Aires
-                    </p>
-                    <p>
-                        <span class="block mb-2">Teléfono:</span> +54 11 2345 6789
-                    </p>
-                    <p>
-                        <span class="block mb-2">Email:</span> contacto@tigrevet.com
-                    </p>
+                    <h3>Contacto</h3>
+                    <p>Av. Falsa 123, Tigre<br/>
+                    Buenos Aires, Argentina</p>
+                    <p>+54 11 2345 6789</p>
+                    <p>contacto@tigrevet.com</p>
                 </div>
             </div>
-            <p class="text-center mt-8">© 2024 TigreVet. Todos los derechos reservados.</p>
+            <p id="copyright">© 2024 TigreVet. Todos los derechos reservados.</p>
         </div>
     </footer>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.14.0/jquery-ui.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
