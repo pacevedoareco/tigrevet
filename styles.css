@@ -63,7 +63,7 @@ section {
 }
 #inicio-hero{
     position: relative;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("hero-image.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("img/hero-image.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -162,7 +162,7 @@ footer {
     border: 10px solid transparent;
     border-left-width: 0;
     border-right-width: 0;
-    border-image-source: url("paws.jpg");
+    border-image-source: url("img/paws.jpg");
     border-image-repeat: repeat;
     border-image-slice: 30%;
     text-align: center;
