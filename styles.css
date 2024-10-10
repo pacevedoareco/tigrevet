@@ -129,14 +129,17 @@ section {
 .logo{
     height: 5rem;
 }
-.grid-cols-2 div{
+.sitemap{
+    max-height: 400px;
+}
+.grid-cols-2 div, .grid-cols-1 div{
     color: #232323;
     border-radius: .25rem;
     background-color: rgba(255,255,255,1);
     padding: 1.5rem;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-.grid-cols-2 h3,.grid-cols-3 h3{
+.grid-cols-1 h3,.grid-cols-2 h3,.grid-cols-3 h3{
     color: rgb(31,41,55);
     font-weight: 700;
     font-size: 1.25rem;
@@ -160,6 +163,16 @@ section {
 }
 #citas p{
     padding: 10px;
+}
+.paleta{
+    background: linear-gradient(#5ab381b8, #bbfdbcb0);
+    margin-bottom: 10px;
+}
+.avancesInfo p{
+    margin: 1rem;
+}
+.avancesInfo img{
+    height: 50px;
 }
 footer {
     background-color: #5ab381b8;
