@@ -23,6 +23,14 @@ a {
     text-decoration: none;
     color: #000;
 }
+.emergencias{
+    background: rgb(4 154 100);
+    color: white;
+    text-align: right;
+    padding: 10px;
+    padding-right: 50px;
+    font-weight: 700;
+}
 header{
     display: block;
     margin: 15px 25px;
