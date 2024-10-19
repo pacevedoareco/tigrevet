@@ -1,13 +1,40 @@
-// esto debería venir del backend
-const fechasHabilitadasVet1 = ["25/10/2024", "26/10/2024", "27/10/2024", "30/10/2024"];
-const fechasHabilitadasVet2 = ["25/10/2024", "26/10/2024", "27/10/2024", "30/10/2024"];
-const fechasHabilitadasVet3 = ["25/10/2024", "26/10/2024", "27/10/2024", "30/10/2024"];
-const availableDates = ['2024-10-21', '2024-10-19', '2024-10-28'];
-
+// variables para panel de pasos
 let currentStep = 1;
 const totalSteps = 4;
+let veterinarioElegido = 0;
 
-function generateCalendar(date) {
+const generarFechas = (option = 0) => {
+    const dateFormatter = new Intl.DateTimeFormat('en-CA', {
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit'
+    });
+
+    const today = new Date();
+    
+    // Diferentes configuraciones de días según la opción
+    const daysConfig = {
+        1: [0, 3, 5, 6, 10],      // veterinario 1
+        2: [1, 2, 4, 7, 14],      // veterinario 2
+        3: [0, 1, 7, 9, 11, 15],     // veterinario 3
+        0: [0,1,2,3,4,5,6,7,9,10,11,14,15] // todos
+    };
+
+    // Si la opción no existe, usa la opción 4 por defecto
+    const daysToAdd = daysConfig[option] || daysConfig[0];
+
+    return daysToAdd.map(days => {
+        const date = new Date(today);
+        date.setDate(today.getDate() + days);
+        return dateFormatter.format(date);
+    });
+};
+
+function generateCalendar(date, veterinario=0) {
+    // fechas habilitadas debería venir del backend
+    let availableDates =  generarFechas(veterinario);
+    console.log(availableDates+" son las fechas");
+    console.log(veterinario+" es el "+veterinarioElegido);
     const firstDay = moment(date).startOf('month');
     const daysInMonth = moment(date).daysInMonth();
     const startingDay = firstDay.day();
@@ -34,11 +61,14 @@ function generateCalendar(date) {
         if (isAvailable) {
           $('.selected-date').removeClass('selected-date bg-blue-500 text-white');
           $(this).addClass('selected-date bg-blue-500 text-white');
-          $('#scheduleDate').text(`Agenda para ${moment(currentDate).format('MMMM D, YYYY')}`);
+          $('#scheduleDate').text(`Agenda para ${moment(currentDate).format('LL')}`);
         }
       });
       
       $('#calendar').append(dayElement);
+
+      if(day==moment().date())
+        dayElement.click();      
     }
 }
 
@@ -48,11 +78,26 @@ $(document).ready(function() {
             $("#menuHamburguesa input").click();
     });
 
+    $('.veterinarios li').each(function(index){
+        $(this).on("click", function(){
+            let elID = $(this).attr('id');
+            veterinarioElegido = elID.charAt(elID.length-1);
+              moment.locale('es');
+            let currentDate = moment();
+            generateCalendar(currentDate, veterinarioElegido);
+            $('.veterinarios').hide();
+            $('#nextStep').click();
+            $('.navegacion').show();
+        });
+    });
     $('.porVeterinario').click(function(){
-        $('#nextStep').click();
-        $('.navegacion').show();
+        $('.paso1').hide();
+        $('.veterinarios').fadeIn();
     });
     $('.porFecha').click(function(){
+          moment.locale('es');
+            let currentDate = moment();
+            generateCalendar(currentDate);
         $('#nextStep').click();
         $('.navegacion').show();
     });
@@ -78,16 +123,16 @@ $(document).ready(function() {
   
   moment.locale('es');
   let currentDate = moment();
-  generateCalendar(currentDate);
+  generateCalendar(currentDate, veterinarioElegido);
   
   $('#prevMonth').click(function() {
     currentDate = moment(currentDate).subtract(1, 'month');
-    generateCalendar(currentDate);
+    generateCalendar(currentDate, veterinarioElegido);
   });
   
   $('#nextMonth').click(function() {
     currentDate = moment(currentDate).add(1, 'month');
-    generateCalendar(currentDate);
+    generateCalendar(currentDate, veterinarioElegido);
   });
 });
 
@@ -95,10 +140,12 @@ function confirmarTurno(){
     alert("Fin");
 }
 function updateSteps() {
-    $('div[class^="paso"]').hide();
-    $('#nextStep').hide();
     if(currentStep==1)
         $('.navegacion').hide();
+    else
+        $('.paso'+(currentStep-1)).hide("slide", { direction: "right" }, 500);
+    $('div[class^="paso"],#nextStep').hide();
+
     $('.step').each(function(index) {
         const stepNumber = index + 1;
         const stepElement = $(this);
@@ -123,7 +170,12 @@ function updateSteps() {
         }
     });
 
-    $('.paso'+currentStep).show();
+    if(currentStep==1)
+        $('.paso'+currentStep).show();
+    else
+        $('.paso'+currentStep).show("slide", { direction: "right" }, 500);
+
+
 
     // Update button states
     $('#prevStep').prop('disabled', currentStep === 1);
