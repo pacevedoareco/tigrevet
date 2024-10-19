@@ -153,7 +153,7 @@ section {
     margin: 0 auto;
     text-align: center;
 }
-#citas > div{
+.citasHome{
     color: #232323;
     text-align: center;
     border-color: rgb(229,231,235);
@@ -163,6 +163,9 @@ section {
 }
 #citas p{
     padding: 10px;
+}
+.explicacion{
+    text-align: left;
 }
 .paleta{
     background: linear-gradient(#5ab381b8, #bbfdbcb0);
@@ -317,6 +320,10 @@ footer .container {
     }
     nav li a:hover{
         opacity: 0.8;
+        background-color: #1f583e;
+        color: #ffffff;
+    }
+    nav li .activo{
         background-color: #1f583e;
         color: #ffffff;
     }
