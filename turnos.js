@@ -96,6 +96,7 @@ function confirmarTurno(){
 }
 function updateSteps() {
     $('div[class^="paso"]').hide();
+    $('#nextStep').hide();
     if(currentStep==1)
         $('.navegacion').hide();
     $('.step').each(function(index) {
