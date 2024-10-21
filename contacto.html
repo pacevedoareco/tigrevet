@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TigreVet - Cuidando de tu mascota</title>
+    <title>Avances - TigreVet - Cuidando de tu mascota</title>
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.0/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
     <link rel="stylesheet" href="styles.css">
@@ -23,58 +23,45 @@
                     <input type="checkbox" />
                     <span></span><span></span><span></span>
                     <ul>
-                        <li><a class="activo" href="index.html">Inicio</a></li>
+                        <li><a href="index.html">Inicio</a></li>
                         <li><a href="servicios.html">Servicios</a></li>
                         <li><a href="citas.html">Turnos</a></li>
                         <li><a href="recursos.html">Recursos educativos</a></li>
                         <li><a href="blog.html">Blog</a></li>
                         <li><a href="faq.html">Preguntas frecuentes</a></li>
                         <li><a href="pagos.html">Métodos de pago</a></li>
-                        <li><a href="contacto.html">Contacto</a></li>
+                        <li><a class="activo" href="contacto.html">Contacto</a></li>
                     </ul>
                 </div>
             </nav>
         </div>
     </header>
     <main>
-        <section id="inicio-hero">
-            <div class="herotext">
-                <div>
-                    <h1>Tu mascota, nuestra prioridad</h1>
-                    <p>Cuidando de la salud y bienestar de tu mascota.</p>
-                    <a href="#citas">Reserva tu turno</a>
+        <section id="contacto" class="section">
+                <h2>Contacto</h2>
+                <div class="contact-form-container">
+                    <h3 class="w-full text-lg font-light mb-4">Escribí tu consulta y nos pondremos en contacto a la brevedad.</h3>
+                    <form class="contact-form">
+                        <div class="form-group">
+                            <label for="nombre">Nombre:</label>
+                            <input type="text" id="nombre" name="nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="telefono">Teléfono:</label>
+                            <input type="tel" id="telefono" name="telefono">
+                        </div>
+                        <div class="form-group">
+                            <label for="mensaje">Mensaje:</label>
+                            <textarea id="mensaje" name="mensaje" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-button">Enviar mensaje</button>
+                    </form>
                 </div>
-            </div>
-        </section>
-        <section id="servicios">
-            <h2>Nuestros Servicios</h2>
-            <div class="grid-cols-2">
-                <div>
-                    <h3>Atención Veterinaria General</h3>
-                    <p>Consulta médica para tu mascota, chequeos, vacunas, etc.</p>
-                </div>
-                <div>
-                    <h3>Cirugía</h3>
-                    <p>Cirugías generales, de tejidos blandos, ortopédicas, etc.</p>
-                </div>
-                <div>
-                    <h3>Odontología</h3>
-                    <p>Limpieza dental, extracciones, tratamientos de enfermedades bucales.</p>
-                </div>
-                <div>
-                    <h3>Radiología y Ecografía</h3>
-                    <p>Estudios radiológicos y ecográficos para diagnósticos.</p>
-                </div>
-                <div>
-                    <h3>Laboratorio</h3>
-                    <p>Análisis de sangre, orina, heces, etc. para diagnósticos.</p>
-                </div>
-                <div>
-                    <h3>Peluquería canina</h3>
-                    <p>Baños, cortes de pelo, desparasitación, etc.</p>
-                </div>
-            </div>
-        </section>
+            </section>
     </main>
     <footer>
         <div class="container">
