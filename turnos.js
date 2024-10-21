@@ -123,9 +123,12 @@ function generateCalendar(date, veterinario=0) {
                 nombre = "Nahuel";
                 break;
             }
-          $("#agendaDia").append("<div id='horario'"+i+" class='horario flex items-center justify-between justify-self-center p-5 text-gray-500 bg-white border border-gray-200 rounded cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700'><img src='./img/"+fotoVeterinario+"' class='w-12 h-12 rounded-full'><div><h3 class='font-medium'>"+nombre+"</h3><p class='text-gray-600'>"+horariosMes[day][i]+"</p></div>");
+          $("#agendaDia").append("<div id='horario"+i+"' class='horario flex items-center justify-between justify-self-center p-5 text-gray-500 bg-white border border-gray-200 rounded cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700'><img src='./img/"+fotoVeterinario+"' class='w-12 h-12 rounded-full'><div><h3 class='font-medium'>"+nombre+"</h3><p class='text-gray-600'>"+horariosMes[day][i]+"</p></div>");
           $("#horario"+i).click(function(){
-            alert("hiciste click en "+i);
+            $('#nextStep').click();
+            $('.paso3vet,#teAtiendeNombre').text($(this).find("h3").text());
+            $('#teAtiendeFoto').attr('src','./img/'+$('.paso3vet').text().toLowerCase()+'.jpg');
+            $('.navegacion,#nextStep,.paso3').removeClass('hidden');
           });
           }
         }
@@ -143,7 +146,6 @@ $(document).ready(function() {
         if($("#menuHamburguesa input").prop("checked"))
             $("#menuHamburguesa input").click();
     });
-
     $('.veterinarios li').each(function(index){
         $(this).on("click", function(){
             let elID = $(this).attr('id');
@@ -155,7 +157,7 @@ $(document).ready(function() {
             $("#agendaDia").empty();
             $('.veterinarios').hide();
             $('#nextStep').click();
-            $('.navegacion').show();
+            $('.navegacion').removeClass('hidden');
         });
     });
     $('.porVeterinario').click(function(){
@@ -168,16 +170,22 @@ $(document).ready(function() {
         generateCalendar(currentDate);
         $('.veterinarioElegido').html("0");
         $('#nextStep').click();
-        $('.navegacion').show();
+        $('.navegacion').removeClass('hidden');
     });
 
     $('#nextStep').click(function() {
-        if (currentStep < totalSteps) {
+        let errores = 0;
+        if (currentStep == (totalSteps-1)) //ultimo paso
+            errores = revisarForm();
+        if (errores < 1){   // no hay errores o no es el ultimo paso
             currentStep++;
             updateSteps();
-        }else{
-            confirmarTurno();
         }
+        if (errores == -1)  // ultimo paso sin errores
+            confirmarTurno();
+        if (errores == 2)
+            $("#erroresForm").removeClass('hidden');
+        console.log("errores? "+errores);
     });
 
     $('#prevStep').click(function() {
@@ -205,15 +213,24 @@ $(document).ready(function() {
   });
 });
 
+function revisarForm(){
+    var hayError = -1;
+    $("#nombre,#email,#telefono").each(function(index){
+        if($(this).val()=="") return hayError = 2;
+    });
+    return hayError;
+}
 function confirmarTurno(){
-    alert("Fin");
+    $('.navegacion').addClass('hidden');
+    $(".pasoFinal").fadeIn();
 }
 function updateSteps() {
     if(currentStep==1)
-        $('.navegacion').hide();
+        $('.navegacion').addClass('hidden');
     else
         $('.paso'+(currentStep-1)).hide("slide", { direction: "right" }, 500);
-    $('div[class^="paso"],#nextStep').hide();
+    $('div[class^="paso"]').hide();
+    $('#nextStep').addClass('hidden');
 
     $('.step').each(function(index) {
         const stepNumber = index + 1;
