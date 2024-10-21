@@ -30,16 +30,55 @@ const generarFechas = (option = 0) => {
     });
 };
 
+const generateMonthlySchedules = () => {
+    // Función auxiliar para generar horarios
+    const formatTime = (hour, minutes) => {
+        return `${hour}${minutes === 30 ? ':30' : ''}`;
+    };
+    // Genera todos los posibles intervalos de 30 minutos entre 9:00 y 18:00
+    const generateAllPossibleSlots = () => {
+        const slots = [];
+        for (let hour = 9; hour < 18; hour++) {
+            slots.push(`${formatTime(hour, 0)} - ${formatTime(hour, 30)}hs`);
+            slots.push(`${formatTime(hour, 30)} - ${formatTime(hour + 1, 0)}hs`);
+        }
+        return slots;
+    };
+
+    // Función para obtener elementos aleatorios de un array
+    const getRandomSlots = (array, min, max) => {
+        const count = Math.floor(Math.random() * (max - min + 1)) + min;
+        const shuffled = [...array].sort(() => 0.5 - Math.random());
+        return shuffled.slice(0, count).sort((a, b) => {
+            const timeA = parseInt(a.split('-')[0]);
+            const timeB = parseInt(b.split('-')[0]);
+            return timeA - timeB;
+        });
+    };
+
+    const allPossibleSlots = generateAllPossibleSlots();
+    const horarios = {};
+
+    // Genera horarios para cada día del mes
+    for (let day = 1; day <= 31; day++) {
+        horarios[day] = getRandomSlots(allPossibleSlots, 3, 5);
+    }
+
+    return horarios;
+};
+
 function generateCalendar(date, veterinario=0) {
     // fechas habilitadas debería venir del backend
     let availableDates =  generarFechas(veterinario);
+    const horariosMes = generateMonthlySchedules();
     console.log(availableDates+" son las fechas");
-    console.log(veterinario+" es el "+veterinarioElegido);
+    console.log(veterinario+" es el veterinario "+veterinarioElegido);
     const firstDay = moment(date).startOf('month');
     const daysInMonth = moment(date).daysInMonth();
     const startingDay = firstDay.day();
     $('#currentMonth').text(moment(date).format('MMMM YYYY'));
     $('#calendar').empty();
+    $("#agendaDia").empty();
     
     // Add empty cells for days before the first of the month
     for (let i = 0; i < startingDay; i++) {
@@ -53,7 +92,7 @@ function generateCalendar(date, veterinario=0) {
       
       const dayElement = $('<div>', {
         class: `p-2 text-center cursor-pointer rounded hover:bg-gray-100 ${
-          isAvailable ? 'bg-blue-50 text-blue-600' : ''
+          isAvailable ? 'bg-blue-50 text-blue-600 habilitado' : ''
         }`
       }).text(day);
       
@@ -62,13 +101,40 @@ function generateCalendar(date, veterinario=0) {
           $('.selected-date').removeClass('selected-date bg-blue-500 text-white');
           $(this).addClass('selected-date bg-blue-500 text-white');
           $('#scheduleDate').text(`Agenda para ${moment(currentDate).format('LL')}`);
+          $("#agendaDia").html("");
+          for(let i=0;i<horariosMes[day].length;i++){
+            let nombre;
+            let fotoVeterinario;
+            let tuVeterinario = parseInt($('.veterinarioElegido').text());
+            if(tuVeterinario==0 || tuVeterinario > 3)
+                tuVeterinario = Math.floor(Math.random()*3)+1;
+            console.log("un vete"+tuVeterinario+".");
+            switch(tuVeterinario){
+            case 1:
+                fotoVeterinario = "pablo.jpg";
+                nombre = "Pablo";
+                break;
+            case 2:
+                fotoVeterinario = "nacho.jpg";
+                nombre = "Nacho";
+                break;
+            case 3:
+                fotoVeterinario = "nahuel.jpg";
+                nombre = "Nahuel";
+                break;
+            }
+          $("#agendaDia").append("<div id='horario'"+i+" class='horario flex items-center justify-between justify-self-center p-5 text-gray-500 bg-white border border-gray-200 rounded cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700'><img src='./img/"+fotoVeterinario+"' class='w-12 h-12 rounded-full'><div><h3 class='font-medium'>"+nombre+"</h3><p class='text-gray-600'>"+horariosMes[day][i]+"</p></div>");
+          $("#horario"+i).click(function(){
+            alert("hiciste click en "+i);
+          });
+          }
         }
       });
       
       $('#calendar').append(dayElement);
 
       if(day==moment().date())
-        dayElement.click();      
+        dayElement.click();  
     }
 }
 
@@ -85,6 +151,8 @@ $(document).ready(function() {
               moment.locale('es');
             let currentDate = moment();
             generateCalendar(currentDate, veterinarioElegido);
+            $('.veterinarioElegido').html(veterinarioElegido);
+            $("#agendaDia").empty();
             $('.veterinarios').hide();
             $('#nextStep').click();
             $('.navegacion').show();
@@ -95,9 +163,10 @@ $(document).ready(function() {
         $('.veterinarios').fadeIn();
     });
     $('.porFecha').click(function(){
-          moment.locale('es');
-            let currentDate = moment();
-            generateCalendar(currentDate);
+        moment.locale('es');
+        let currentDate = moment();
+        generateCalendar(currentDate);
+        $('.veterinarioElegido').html("0");
         $('#nextStep').click();
         $('.navegacion').show();
     });

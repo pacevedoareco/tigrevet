@@ -63,6 +63,7 @@ header{
     line-height: 2rem;
     font-weight: 700;
     color: rgba(31,41,55,1);
+    margin-left: 9px;
 }
 section {
     padding: 4rem 0;
