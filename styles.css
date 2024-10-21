@@ -140,6 +140,10 @@ section {
     padding: 1.5rem;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+.noSombra{
+    box-shadow: none!important;
+    padding: 1rem!important;
+}
 .grid-cols-1 h3,.grid-cols-2 h3,.grid-cols-3 h3{
     color: rgb(31,41,55);
     font-weight: 700;
