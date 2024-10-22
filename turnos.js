@@ -15,12 +15,12 @@ const generarFechas = (option = 0) => {
     // Diferentes configuraciones de días según la opción
     const daysConfig = {
         1: [0, 3, 5, 6, 10],      // veterinario 1
-        2: [1, 2, 4, 7, 14],      // veterinario 2
+        2: [0, 1, 2, 4, 7, 14],      // veterinario 2
         3: [0, 1, 7, 9, 11, 15],     // veterinario 3
         0: [0,1,2,3,4,5,6,7,9,10,11,14,15] // todos
     };
 
-    // Si la opción no existe, usa la opción 4 por defecto
+    // Si la opción no existe, usa la opción 0 por defecto
     const daysToAdd = daysConfig[option] || daysConfig[0];
 
     return daysToAdd.map(days => {
@@ -63,7 +63,6 @@ const generateMonthlySchedules = () => {
     for (let day = 1; day <= 31; day++) {
         horarios[day] = getRandomSlots(allPossibleSlots, 3, 5);
     }
-
     return horarios;
 };
 
@@ -71,8 +70,7 @@ function generateCalendar(date, veterinario=0) {
     // fechas habilitadas debería venir del backend
     let availableDates =  generarFechas(veterinario);
     const horariosMes = generateMonthlySchedules();
-    console.log(availableDates+" son las fechas");
-    console.log(veterinario+" es el veterinario "+veterinarioElegido);
+    //console.log(availableDates+" son las fechas");
     const firstDay = moment(date).startOf('month');
     const daysInMonth = moment(date).daysInMonth();
     const startingDay = firstDay.day();
@@ -80,12 +78,12 @@ function generateCalendar(date, veterinario=0) {
     $('#calendar').empty();
     $("#agendaDia").empty();
     
-    // Add empty cells for days before the first of the month
+    // Agregar espacios vacios antes del 1ro del mes
     for (let i = 0; i < startingDay; i++) {
       $('#calendar').append('<div class="p-2 text-center text-gray-400"></div>');
     }
     
-    // Add calendar days
+    // Agregar cada dia del mes
     for (let day = 1; day <= daysInMonth; day++) {
       const currentDate = moment(date).date(day).format('YYYY-MM-DD');
       const isAvailable = availableDates.includes(currentDate);
@@ -195,22 +193,21 @@ $(document).ready(function() {
         }
     });
 
-    // Initialize steps
     updateSteps();
-  
-  moment.locale('es');
-  let currentDate = moment();
-  generateCalendar(currentDate, veterinarioElegido);
-  
-  $('#prevMonth').click(function() {
+
+    moment.locale('es');
+    let currentDate = moment();
+    generateCalendar(currentDate, veterinarioElegido);
+
+    $('#prevMonth').click(function() {
     currentDate = moment(currentDate).subtract(1, 'month');
     generateCalendar(currentDate, veterinarioElegido);
-  });
-  
-  $('#nextMonth').click(function() {
+    });
+
+    $('#nextMonth').click(function() {
     currentDate = moment(currentDate).add(1, 'month');
     generateCalendar(currentDate, veterinarioElegido);
-  });
+    });
 });
 
 function revisarForm(){
@@ -239,17 +236,17 @@ function updateSteps() {
         const text = stepElement.find('div:last');
 
         if (stepNumber < currentStep) {
-            // Completed steps
+            // Pasos completos
             circle.removeClass('bg-gray-200 text-gray-600').addClass('bg-indigo-600 text-white');
             text.removeClass('text-gray-500').addClass('text-indigo-600');
             circle.html('<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>');
         } else if (stepNumber === currentStep) {
-            // Current step
+            // Paso actual
             circle.removeClass('bg-gray-200 text-gray-600').addClass('bg-indigo-600 text-white');
             text.removeClass('text-gray-500').addClass('text-indigo-600');
             circle.html(`<span class="text-sm font-medium">${String(stepNumber).padStart(2, '0')}</span>`);
         } else {
-            // Future steps
+            // Pasos futuros
             circle.removeClass('bg-indigo-600 text-white').addClass('bg-gray-200 text-gray-600');
             text.removeClass('text-indigo-600').addClass('text-gray-500');
             circle.html(`<span class="text-sm font-medium">${String(stepNumber).padStart(2, '0')}</span>`);
@@ -261,9 +258,7 @@ function updateSteps() {
     else
         $('.paso'+currentStep).show("slide", { direction: "right" }, 500);
 
-
-
-    // Update button states
+    // Actualizo botones
     $('#prevStep').prop('disabled', currentStep === 1);
     $('#nextStep').text(currentStep === totalSteps ? 'Finalizar' : 'Siguiente');
 }
