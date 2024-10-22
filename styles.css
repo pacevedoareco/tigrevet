@@ -19,6 +19,9 @@ h2{
     font-size: 1.875rem;
     line-height: 2.25rem;
 }
+.preguntas h2{
+    margin-bottom: 0;
+}
 a {
     text-decoration: none;
     color: #000;
