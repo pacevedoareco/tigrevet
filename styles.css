@@ -194,6 +194,66 @@ section {
     text-align: center;
     text-align: -webkit-center;
 }
+/* CLASES DE BLOG */
+.blog-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.blog-post {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+.blog-post h3 {
+    color: #039a63;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.blog-post .post-meta {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.blog-post .post-content {
+    line-height: 1.6;
+    color: #333;
+}
+
+.blog-post .read-more {
+    display: inline-block;
+    color: #039a63;
+    text-decoration: none;
+    margin-top: 1rem;
+    font-weight: bold;
+}
+
+.blog-post .read-more:hover {
+    color: #24a375;
+}
+
+.text-align-center{
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .blog-container {
+        padding: 1rem;
+    }
+    
+    .blog-post {
+        padding: 1.5rem;
+    }
+}
+/* FIN CLASES DE BLOG */
 /* CLASES DE CONTACTO */
 .contact-form-container {
     max-width: 600px;
