@@ -329,6 +329,18 @@ footer .container {
     text-align: center;
     margin-top: 2rem;
 }
+.footer-logo {
+    height: 70px;
+    width: 180px;
+    background-image: url("./img/uade.png");
+    margin-left: 1rem;
+    margin-top: 1rem;
+    background-size:     cover;
+    background-repeat:   no-repeat;
+    background-position: center center;
+    background-color: #5f9ea0;
+    border-radius: 5px;
+}
 /** Pantallas de menos de 1110px muestran hamburguesa **/
 @media screen and (max-width: 1110px) {
     body{
