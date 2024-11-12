@@ -9,13 +9,13 @@ $(document).ready(function() {
     });
     $('.paso1opcionX').click(function(){
         let servID = $(this).attr('id');
-        $('.servicioElegido').html(servID.charAt(servID.length-1));
-        cargarPaso2($('.servicioElegido').html());
+        $('.servicioElegido').html(servID.charAt(servID.length-1)+"_");
+        cargarPaso2($('.servicioElegido').html().charAt(0));
         $('#nextStep').click();
     });
     $('.paso2opcionX').click(function(){
         let servID = $(this).attr('id');
-        $('.servicioElegido').append(servID.charAt(servID.length-1));
+        $('.servicioElegido').html($('.servicioElegido').html()+servID.charAt(servID.length-1));
         cargarPaso3();
         $('#nextStep').click();
     });
@@ -53,6 +53,9 @@ function updateSteps() {
     default:
         $('.paso'+currentStep).show("slide", { direction: "right" }, 200);
     }
+
+    if(currentStep==2 && $('.servicioElegido').html().length>2)
+        $('.servicioElegido').html($('.servicioElegido').html().charAt(0)+"_");
     // Actualizo botones
     $('#prevStep').prop('disabled', currentStep === 1);
     $('#nextStep').text(currentStep === totalSteps-1 ? 'Calcular costo' : 'Siguiente');
