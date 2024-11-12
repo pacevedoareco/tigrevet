@@ -39,32 +39,191 @@
     <main>
         <section id="servicios">
             <h2>Nuestros Servicios</h2>
-            <div class="grid-cols-2">
-                <div>
-                    <h3>Atención Veterinaria General</h3>
-                    <p>Ofrecemos consultas médicas para tu mascota, chequeos regulares, planes de vacunación y tratamientos preventivos, asegurando el bienestar y la salud en todo momento.</p>
+            <div class="flex items-center p-4 mb-8 text-sm text-yellow-800 border border-yellow-300 rounded-lg bg-yellow-50 dark:bg-gray-800 dark:text-yellow-300 dark:border-yellow-800" role="alert">
+              <span class="sr-only">Emergencias</span>
+              <div>
+                <span class="font-bold">Emergencias:</span> Si tu mascota necesita atención urgente, llamá al <b>+54 11 2345 6789</b> o acercate de inmediato a nuestra clínica. ¡Estamos para ayudarte las 24 horas!
+              </div>
+            </div>
+<!-- Inicio paneles -->
+<div class="max-w-4xl mx-auto bg-white p-8 border border-gray-200 rounded-lg">
+    <!-- Stepper Container -->
+    <div class="relative">
+        <!-- Progress Bar Background -->
+        <div class="absolute top-1/2 w-full h-0.5 bg-gray-200 -translate-y-1/2"></div>
+
+        <!-- Steps Container -->
+        <div class="relative flex justify-between">
+            <!-- Step 1: Tipo de servicio -->
+            <div class="step active flex flex-col items-center">
+                <div class="w-10 h-10 rounded-full bg-indigo-600 flex items-center justify-center text-white mb-2">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
                 </div>
-                <div>
-                    <h3>Cirugía</h3>
-                    <p>Realizamos cirugías generales, de tejidos blandos y ortopédicas con equipos avanzados.</p>
+                <div class="text-sm font-medium text-indigo-600">Tipo de servicio</div>
+            </div>
+
+            <!-- Step 2: subservicio -->
+            <div class="step flex flex-col items-center">
+                <div class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-gray-600 mb-2">
+                    <span class="text-sm font-medium">02</span>
                 </div>
-                <div>
-                    <h3>Odontología</h3>
-                    <p>Brindamos limpiezas dentales, extracciones y tratamientos para enfermedades bucales, ayudando a mantener una salud dental óptima.</p>
+                <div class="text-sm font-medium text-gray-500">Detalles de atención</div>
+            </div>
+
+            <!-- Step 3: Contacto -->
+            <div class="step flex flex-col items-center">
+                <div class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-gray-600 mb-2">
+                    <span class="text-sm font-medium">03</span>
                 </div>
-                <div>
-                    <h3>Radiología y Ecografía</h3>
-                    <p>Disponemos de equipos para estudios radiológicos y ecográficos precisos para diagnosticar diversas condiciones de salud de manera rápida y efectiva.</p>
+                <div class="text-sm font-medium text-gray-500">Sobre tu mascota</div>
+            </div>
+
+            <!-- Step 4: Estimado -->
+            <div class="step flex flex-col items-center">
+                <div class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-gray-600 mb-2">
+                    <span class="text-sm font-medium">04</span>
                 </div>
-                <div>
-                    <h3>Laboratorio</h3>
-                    <p>Realizamos análisis de sangre, orina y heces, proporcionando diagnósticos rápidos y fiables para lograr un tratamiento adecuado.</p>
+                <div class="text-sm font-medium text-gray-500">Estimado</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="paso1 my-8 py-2 bg-white-200">
+      <div class="flex items-center p-4 mb-4 text-sm text-blue-800 rounded-lg bg-blue-50 dark:bg-gray-800 dark:text-blue-400" role="alert">
+        <div>Si querés estimar el costo de nuestros servicios, elegí uno y en 3 simples pasos te ayudamos.</div>
+      </div>
+      <ul class="grid w-full gap-6 md:grid-cols-2">
+        <!-- PASO1_OPCION1 -->
+        <li id="paso1opcion1" class="paso1opcionX inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">       
+            <div class="block">
+                <div class="w-full text-lg font-semibold">Atención veterinaria general</div>
+                <div class="w-full">Consultas médicas, chequeos regulares, planes de vacunación y tratamientos preventivos.</div>
+            </div>
+            <svg class="w-5 h-5 ms-3 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+            </svg>
+        </li>
+        <!-- FIN PASO1_OPCION1 -->
+        <!-- PASO1_OPCION2 -->
+        <li id="paso1opcion2" class="paso1opcionX inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">       
+            <div class="block">
+                <div class="w-full text-lg font-semibold">Cirugía</div>
+                <div class="w-full">Cirugías generales, de tejidos blandos y ortopédicas con equipos de última generación.</div>
+            </div>
+            <svg class="w-5 h-5 ms-3 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+            </svg>
+        </li>
+        <!-- FIN PASO1_OPCION2 -->
+        <!-- PASO1_OPCION3 -->
+        <li id="paso1opcion3" class="paso1opcionX inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">       
+            <div class="block mr-2">
+                <div class="w-full text-lg font-semibold">Radiología y ecografía</div>
+                <div class="w-full">Estudios radiológicos y ecográficos precisos, con diagnósticos rápidos y confiables.</div>
+            </div>
+            <svg class="w-5 h-5 ms-3 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+            </svg>
+        </li>
+        <!-- FIN PASO1_OPCION3 -->
+        <!-- PASO1_OPCION4 -->
+        <li id="paso1opcion4" class="paso1opcionX inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">       
+            <div class="block">
+                <div class="w-full text-lg font-semibold">Odontología</div>
+                <div class="w-full">Limpiezas dentales, extracciones y tratamientos para enfermedades bucales.</div>
+            </div>
+            <svg class="w-5 h-5 ms-3 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+            </svg>
+        </li>
+        <!-- FIN PASO1_OPCION4 -->
+        <!-- PASO1_OPCION5 -->
+        <li id="paso1opcion5" class="paso1opcionX inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">       
+            <div class="block">
+                <div class="w-full text-lg font-semibold">Peluquería canina</div>
+                <div class="w-full">Baños, cortes de pelo y tratamientos para el cuidado del pelaje.</div>
+            </div>
+            <svg class="w-5 h-5 ms-3 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+            </svg>
+        </li>
+        <!-- FIN PASO1_OPCION5 -->
+        <!-- PASO1_OPCION6 -->
+        <li id="paso1opcion6" class="paso1opcionX inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">       
+            <div class="block">
+                <div class="w-full text-lg font-semibold">Laboratorio</div>
+                <div class="w-full">Análisis de sangre, orina y heces, con resultados rápidos y fiables.</div>
+            </div>
+            <svg class="w-5 h-5 ms-3 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+            </svg>
+        </li>
+        <!-- FIN PASO1_OPCION6 -->
+      </ul>
+    </div>
+    <!-- FIN PASO 1 -->
+    <!-- INICIO PASO 2 -->
+    <div class="paso2 my-8 hidden">
+        <div class='servicioElegido hidden'>0</div>
+        <div class="flex items-center p-4 mb-4 text-sm text-blue-800 rounded-lg bg-blue-50 dark:bg-gray-800 dark:text-blue-400" role="alert">
+        <div class="instrucciones2">Seleccioná el tipo de atención:</div></div>
+          <div class="max-w-6xl mx-auto flex flex-col md:flex-row gap-8 detallesServicio">
+        <ul class='grid w-full gap-6 md:grid-cols-2'>
+            <li id="paso2opcion1" class="paso2opcionX inline-flex items-center justify-center w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                <div class="block"><div class="w-full text-lg font-semibold">Endoscopía (con toma de muestra)</div></div>
+            </li><li id="paso2opcion2" class="paso2opcionX inline-flex items-center justify-center w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700"><div class="block"><div class="w-full text-lg font-semibold">Radiografía</div></div></li><li id="paso2opcion3" class="paso2opcionX inline-flex items-center justify-center w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700"><div class="block"><div class="w-full text-lg font-semibold">Ecografía</div></div></li><li id="paso2opcion4" class="paso2opcionX inline-flex items-center justify-center w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700"><div class="block"><div class="w-full text-lg font-semibold">Rinoscopía</div></div></li></ul>
+          </div>
+        </div>
+        <!-- FIN PASO 2-->
+        <!-- INICIO PASO 3-->
+        <div class="paso3 hidden my-8 py-2 bg-white-200">
+          <div class="flex items-center p-4 mb-4 text-sm text-blue-800 rounded-lg bg-blue-50 dark:bg-gray-800 dark:text-blue-400" role="alert"><div>OPCIONAL: Dejanos tus datos y los de tu mascota para que podamos contactarte con más información.</div></div>
+          <form class="max-w-sm mx-auto" id="datosTurno" method="post">
+                <div class="mb-3">
+                    <label for="nombre" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tu nombre</label>
+                    <input type="text" id="nombre" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
                 </div>
-                <div>
-                    <h3>Peluquería canina</h3>
-                    <p>Ofrecemos baños, cortes de pelo y tratamientos para el cuidado del pelaje.</p>
+                <div class="mb-3">
+                    <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Correo</label>
+                    <input type="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="nombre@mail.com" />
+                </div>
+                <div class="mb-3">
+                    <label for="telefono" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Teléfono</label>
+                    <input type="tel" id="telefono" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+                </div>
+                <div class="mb-3">
+                    <label for="mensaje" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Datos de tu mascota y el servicio que necesita</label>
+                    <textarea id="mensaje" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Contanos todos los detalles que creas importantes."></textarea>
+                </div>
+                <div class="mb-3 block text-center textoCentrado">
+                        Te va a contactar: <span id="teAtiendeNombre">Luciano</span>
+                        <img id="teAtiendeFoto" src="" class="w-full fotoPerfil my-4" />
+                </div>
+            </form>
+        </div>
+        <!-- FIN PASO 3-->
+        <!-- INICIO PASO FINAL -->
+        <div class="paso4 hidden my-8 py-2 bg-white-200">
+            <div class="flex items-center p-4 mb-4 text-green-800 border-t-4 border-green-300 bg-green-50 dark:text-green-400 dark:bg-gray-800 dark:border-green-800" role="alert">
+                <div class="ms-3 text-sm font-medium">
+                  El costo para el servicio es de $20.000 pesos y podés abonarlo con cualquiera de nuestros <a href="pagos.html">medios de pago</a>.
                 </div>
             </div>
+        </div>
+        <!-- FIN PASO FINAL -->
+    <!-- Navigation Buttons -->
+    <div class="navegacion hidden flex justify-between mt-8 mb-8">
+        <button id="prevStep" class="px-4 py-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 disabled:opacity-50">
+            Atrás
+        </button>
+        <button id="nextStep" class="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700">
+            Siguiente
+        </button>
+    </div>
+</div>
+<!-- Fin paneles -->
         </section>
     </main>
     <footer>
@@ -103,6 +262,6 @@
     </footer>
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
     <script src="https://code.jquery.com/ui/1.14.0/jquery-ui.js"></script>
-    <script src="script.js"></script>
+    <script src="servicios.js"></script>
 </body>
 </html>

@@ -333,7 +333,8 @@ footer .container {
     height: 70px;
     width: 180px;
     background-image: url("./img/uade.png");
-    margin-left: 1rem;
+    margin-left: auto;
+    margin-right: auto;
     margin-top: 1rem;
     background-size:     cover;
     background-repeat:   no-repeat;

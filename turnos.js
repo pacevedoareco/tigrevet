@@ -225,7 +225,7 @@ function updateSteps() {
     if(currentStep==1)
         $('.navegacion').addClass('hidden');
     else
-        $('.paso'+(currentStep-1)).hide("slide", { direction: "right" }, 500);
+        $('.paso'+(currentStep-1)).hide();
     $('div[class^="paso"]').hide();
     $('#nextStep').addClass('hidden');
 
@@ -256,7 +256,7 @@ function updateSteps() {
     if(currentStep==1)
         $('.paso'+currentStep).show();
     else
-        $('.paso'+currentStep).show("slide", { direction: "right" }, 500);
+        $('.paso'+currentStep).show("slide", { direction: "right" }, 300);
 
     // Actualizo botones
     $('#prevStep').prop('disabled', currentStep === 1);
