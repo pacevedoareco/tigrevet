@@ -33,9 +33,38 @@ $(document).ready(function() {
     });
     updateSteps();
 });
+function matrizDeCostos() {
+    const matrix = [];
+    const servicio = [
+        'primer consulta', 'chequeo general', 'vacunación','', 'cirugía oftalmológica u oncológica', 'cirugía gástrica, respiratoria o bucal', 'castración o cirugía urológica', 
+        'traumatología', 'endoscopía (con toma de muestra)', 'radiografía', 'ecografía', 'rinoscopía', 'limpieza bucal',
+        'cada extracción', 'operación de glándula salival','', 'baño completo', 'corte de pelo', 'corte de pelo y uñas','', 'raspado cutáneo',
+        'hemograma', 'análisis de orina', 'análisis de heces'
+    ];
+    const costo = [
+        '0 (gratis)', '55.000', '35.000', '','160.000', '245.000', '150.000', 
+        '380.000', '302.000', '39.000', '41.000', '135.000', '81.000',
+        '42.000', '135.000','', '80.000', '67.000', '130.000','', '13.000',
+        '15.000', '13.000', '17.500'
+    ];
+
+    for(let i = 0; i < 6; i++) {
+        matrix[i] = [];
+        for(let j = 0; j < 4; j++) {
+            const index = i * 4 + j;
+            matrix[i][j] = {
+                text: servicio[index],
+                number: costo[index]
+            };
+        }
+    }
+    return matrix;
+}
 function calcularCosto(){
-    $('.navegacion').addClass('hidden');
-    $(".pasoFinal").fadeIn();
+    let serv = $('.servicioElegido').html();
+    let matriz = matrizDeCostos();
+    $("#servFinal").html(matriz[serv.charAt(0)-1][serv.charAt(serv.length-1)-1].text);
+    $("#costoFinal").html(matriz[serv.charAt(0)-1][serv.charAt(serv.length-1)-1].number);
 }
 function updateSteps() {
     $('#nextStep').addClass('hidden');
@@ -86,6 +115,7 @@ function updateSteps() {
     });
 }
 function cargarPaso2(servicioElegido=0){
+    $("#paso2opcion4").show();
     switch(parseInt(servicioElegido)){
     case 1:
         $("#paso2opcion1 div div").html("Primer consulta");
