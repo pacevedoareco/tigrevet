@@ -183,6 +183,12 @@ $(document).ready(function() {
             confirmarTurno();
         if (errores == 2)
             $("#erroresForm").removeClass('hidden');
+        if (errores == 3){
+            $(".msjError").html("Revisá que el mail sea correcto.");
+            $("#erroresForm").removeClass('hidden');
+        } else {
+            $(".msjError").html("Por favor, completá todos tus datos para poder confirmar el turno.");
+        }
         console.log("errores? "+errores);
     });
 
@@ -212,6 +218,8 @@ $(document).ready(function() {
 
 function revisarForm(){
     var hayError = -1;
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!regex.test($("#email").val())) hayError = 3;
     $("#nombre,#email,#telefono").each(function(index){
         if($(this).val()=="") return hayError = 2;
     });
