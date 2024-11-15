@@ -27,7 +27,7 @@ a {
     color: #000;
 }
 .emergencias{
-    background: rgb(4 154 100);
+    background: rgb(4 98 64);
     color: white;
     text-align: right;
     padding: 10px;
@@ -110,7 +110,7 @@ section {
     margin: 1rem;
 }
 .herotext a{
-  background-color: #039a63;
+  background-color: #035E3D;
   color: white;
   border: #039a63;
   outline: #039a63;
