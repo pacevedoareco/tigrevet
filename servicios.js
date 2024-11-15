@@ -160,6 +160,7 @@ function cargarPaso2(servicioElegido=0){
 function cargarPaso3(){
     let veteFoto = Math.random() >= 0.5 ? "Franco" : "Luciano";
     $('#teAtiendeFoto').attr('src','./img/'+veteFoto.toLowerCase()+'.jpg');
-    $('#teAtiendeNombre').html(veteFoto);
+    $('#teAtiendeFoto').attr('alt','Foto de '+veteFoto);
+    $('#teAtiendeNombre').html(veteFoto); 
     $('#nextStep').removeClass('hidden');
 }
